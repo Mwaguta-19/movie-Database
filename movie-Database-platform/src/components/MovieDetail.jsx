@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const MovieDetail = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const apiKey = process.env.REACT_APP_OMDB_API_KEY;
+
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
         const response = await axios.get(
-          `https://www.omdbapi.com/?i=${id}&apikey=7110a383260a3c5e8d9bce9ef8276499`
+          `http://www.omdbapi.com/?i=${id}&apikey=${apiKey}`
         );
         setMovie(response.data);
       } catch (error) {

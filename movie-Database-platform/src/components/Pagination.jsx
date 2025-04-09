@@ -2,7 +2,7 @@ import React from 'react';
 
 const Pagination = ({ currentPage, handlePageChange }) => {
   return (
-    <div className="mt-4 text-center">
+    <div className="mt-4 text-center bg-blue">
       <button
         onClick={() => handlePageChange(currentPage - 1)}
         className="px-4 py-2 bg-blue-500 text-white rounded-md disabled:opacity-50"
