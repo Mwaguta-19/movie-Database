@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react";
 
-const Pagination = ({ currentPage, handlePageChange }) => {
+const Pagination = ({ currentPage, onNext, onPrevious }) => {
   return (
-    <div className="mt-4 text-center bg-blue">
+    <div className="flex justify-center items-center gap-4 mt-10">
       <button
-        onClick={() => handlePageChange(currentPage - 1)}
-        className="px-4 py-2 bg-blue-500 text-white rounded-md disabled:opacity-50"
+        onClick={onPrevious}
         disabled={currentPage <= 1}
+        className="bg-black text-white px-4 py-2 rounded disabled:opacity-50"
       >
         Previous
       </button>
-      <span className="mx-4">{currentPage}</span>
+      <span className="text-white">Page {currentPage}</span>
       <button
-        onClick={() => handlePageChange(currentPage + 1)}
-        className="px-4 py-2 bg-blue-500 text-white rounded-md"
+        onClick={onNext}
+        className="bg-black text-white px-4 py-2 rounded"
       >
         Next
       </button>

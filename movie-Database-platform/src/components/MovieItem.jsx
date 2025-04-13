@@ -1,23 +1,18 @@
-// MovieItem.jsx
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
 
 const MovieItem = ({ movie }) => {
   return (
-    <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
+    <div className="bg-gray-800 p-4 rounded shadow-lg">
       <img
-        src={movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/150"}
+        src={
+          movie.Poster !== "N/A"
+            ? movie.Poster
+            : "https://via.placeholder.com/300x450?text=No+Image"
+        }
         alt={movie.Title}
-        className="w-full h-auto rounded-md mb-4"
+        className="w-full h-64 object-cover rounded"
       />
-      <h3 className="text-lg font-bold">{movie.Title}</h3>
-      <p className="text-gray-400">{movie.Year}</p>
-      <Link
-        to={`/movie/${movie.imdbID}`}
-        className="text-red-500 mt-2 inline-block"
-      >
-        View Details
-      </Link>
+      <h2 className="mt-4 text-lg font-semibold">{movie.Title}</h2>
     </div>
   );
 };
